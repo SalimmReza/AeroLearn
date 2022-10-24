@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div>
             <div className='bg-gradient-to-tr from-black to black h-[500px] w-full relative'>
-                <img className='w-fu;; h-full object-cover absolute mix-blend-overlay'
+                <img className='w-full h-full object-cover absolute mix-blend-overlay'
                     src="https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                 <div className='p-24 flex flex-col items-end justify-end'>
                     <h1 className='text-white font-bold'>
