@@ -5,6 +5,7 @@ import Course from "../Header/Pages/Course";
 import Courses from "../Header/Pages/Courses";
 import Home from "../Header/Pages/Home";
 import Login from "../Header/Pages/Login";
+import Register from "../Header/Pages/Register";
 import Main from "../layout/Main";
 import CheckOut from "../shared/CheckOut";
 import Congratulation from "../shared/Congratulation";
@@ -40,6 +41,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/congo',
                 element: <Congratulation></Congratulation>,
+
+
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
 
 
             },
