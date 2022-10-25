@@ -15,8 +15,8 @@ const Course = ({ course }) => {
                 </div>
                 <div className="card w-full h-[250px] bg-base-100 shadow-sm image-full">
                     <figure><img className='' src={img} alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <Link to={`/course/${_id}`}> <button className="btn btn-outline btn-warning">Details</button></Link>
+                    <div className="card-body flex mt-[80px] ml-[30px]">
+                        <Link to={`/course/${_id}`}> <button className="btn btn-outline btn-warning w-80">Details</button></Link>
                     </div>
                 </div>
             </div >

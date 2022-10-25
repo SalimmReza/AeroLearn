@@ -5,8 +5,8 @@ const CheckOut = () => {
     const courseDetails = useLoaderData();
     const { name, university, img, } = courseDetails
     return (
-        <div className='w-[50%] mx-auto'>
-            <div className="card w-full h-[400px] bg-base-100 shadow-xl">
+        <div className='w-[50%] mx-auto mt-10 mb-10'>
+            <div className="card w-full h-full bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={img} alt="Shoes" className="rounded-xl h-[200px]" />
                 </figure>

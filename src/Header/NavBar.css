@@ -3,7 +3,7 @@
 }
 
 .wrapper .icon {
-    margin: 0 20px;
+
     text-align: center;
     cursor: pointer;
     display: flex;
@@ -17,8 +17,8 @@
 
 .wrapper .icon span {
     display: block;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     background: rgb(253, 253, 253);
     border-radius: 50%;
     position: relative;
@@ -28,7 +28,7 @@
 }
 
 .wrapper .icon span img {
-    line-height: 60px;
+    line-height: 40px;
     font-size: 25px;
     border-radius: 50%;
 }

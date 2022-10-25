@@ -9,9 +9,9 @@ const Courses = () => {
     const courses = useLoaderData();
     console.log(courses)
     return (
-        <div className='bg-gray-100 '>
-            <h1 className='text-xl font-semibold text-center my-10'>The courses that we offer</h1>
-            <div className='w-[80%] mx-auto'>
+        <div className='bg-gray-300  '>
+            <h1 className='text-center font-extrabold text-3xl '>The courses that we offer</h1>
+            <div className='w-[80%] mx-auto mt-5'>
 
                 <div className='grid sm:grid-cols-1 lg:grid-cols-4 gap-10 container  '>
                     <div className=''>

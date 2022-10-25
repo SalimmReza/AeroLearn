@@ -24,7 +24,7 @@ const CourseDetails = () => {
 
                     </div>
                     <div className='d-flex'>
-                        <h1>Website Name</h1>
+                        <h1 className='font-bold text'>Aero-Learn</h1>
 
                     </div>
                     <div>
