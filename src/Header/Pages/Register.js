@@ -1,10 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
     const [error, setError] = useState("")
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const provider = new GoogleAuthProvider();
+
+    const from = location.state?.from?.pathname || '/';
+
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -23,6 +32,7 @@ const Register = () => {
                 form.reset();
                 setError('');
                 handleUpdateUser(name, photoUrL);
+                navigate(from, { replace: true });
                 // ...
             })
             .catch((error) => {
@@ -91,6 +101,15 @@ const Register = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register Now</button>
                             </div>
+
+                            {/* <div className="form-control mt-1">
+                                <button
+                                    onClick={handleGoogleClick}
+                                    className="btn btn-primary gap-4"> <FaGoogle></FaGoogle>Google Register </button>
+                            </div>
+                            <div className="form-control mt-1">
+                                <button className="btn btn-primary gap-4"> <FaGithub></FaGithub>Github Register </button>
+                            </div> */}
                         </div>
                     </div>
                 </div>

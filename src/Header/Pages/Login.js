@@ -1,15 +1,39 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const [error, setError] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
-    const { loginIn } = useContext(AuthContext);
+    const { loginIn, googleSignIn } = useContext(AuthContext);
 
+    const provider = new GoogleAuthProvider();
 
     const from = location.state?.from?.pathname || '/';
+
+
+
+    const handleGoogleClick = () => {
+        googleSignIn(provider)
+            .then((result) => {
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+                setError('');
+                navigate(from, { replace: true });
+
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.customData.email;
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                setError(errorMessage);
+
+            });
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -66,6 +90,14 @@ const Login = () => {
                             <p className='text-red-600'>{error}</p>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login Now</button>
+                            </div>
+                            <div className="form-control mt-1">
+                                <button
+                                    onClick={handleGoogleClick}
+                                    className="btn btn-primary gap-4"> <FaGoogle></FaGoogle>Google Login </button>
+                            </div>
+                            <div className="form-control mt-1">
+                                <button className="btn btn-primary gap-4"> <FaGithub></FaGithub>Github Login </button>
                             </div>
                         </div>
                     </div>
