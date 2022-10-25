@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { FaStar, FaDownload } from 'react-icons/fa';
+import { FaStar, FaDownload, FaArrowLeft } from 'react-icons/fa';
+
 
 
 const CourseDetails = () => {
@@ -11,9 +12,13 @@ const CourseDetails = () => {
 
     // console.log(lecturer)
     return (
-        <div className='w-[60%] mx-auto my-5 h-full'>
+        <div className='w-[70%] mx-auto my-5 h-full'>
+
             <div className="card w-full bg-base-100 shadow-xl border-2 border-yellow-600">
                 <div className='flex justify-between items-center p-3'>
+                    <div>
+                        <Link to='/courses'><FaArrowLeft></FaArrowLeft></Link>
+                    </div>
                     <div className='d-flex'>
                         <button className="btn btn-outline btn-primary">Our Commitments</button>
 
@@ -61,6 +66,7 @@ const CourseDetails = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 
