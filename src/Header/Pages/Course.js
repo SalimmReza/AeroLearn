@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Course = ({ course }) => {
-    const { name, university, rating, img, total_enroll } = course
+    const { _id, name, university, rating, img, total_enroll } = course
     return (
         <div>
             <div className="card w-full bg-base-100 shadow-xl ">
@@ -15,8 +16,7 @@ const Course = ({ course }) => {
                 <div className="card w-full h-[250px] bg-base-100 shadow-sm image-full">
                     <figure><img className='' src={img} alt="Shoes" /></figure>
                     <div className="card-body">
-                        <button className="btn btn-outline btn-warning">Details</button>
-
+                        <Link to={`/course/${_id}`}> <button className="btn btn-outline btn-warning">Details</button></Link>
                     </div>
                 </div>
             </div >
