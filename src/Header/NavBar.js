@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthProvider';
+import './NavBar.css'
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -71,9 +72,13 @@ const NavBar = () => {
 
                 {
                     user?.photoURL ?
-                        <div className='icon img'>
-                            <div className='tooltip'>Salim</div>
-                            <img src={user.photoURL} alt="" />
+                        <div class="wrapper">
+                            <div class="icon facebook">
+                                <div class="tooltip">
+                                    {user.displayName}
+                                </div>
+                                <span><img src={user.photoURL} alt="" /></span>
+                            </div>
                         </div>
                         :
                         <div>

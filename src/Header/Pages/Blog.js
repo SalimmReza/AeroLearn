@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import { AuthContext } from '../../Contexts/AuthProvider';
+
 const Blog = ({ course }) => {
     // console.log(course)
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user.name)
 
     const settings = {
         dots: true,
@@ -42,20 +46,7 @@ const Blog = ({ course }) => {
     };
     return (
         <div>
-            <Slider {...settings}>
 
-                <div className="card">
-                    <div className="card-top">
-                        <img src="" alt="" />
-                        <h1></h1>
-                    </div>
-                    <div className="card-bottom">
-                        <h3>ggghg</h3>
-                        <span className="category">grgr</span>
-                    </div>
-                </div>
-
-            </Slider>
         </div>
     );
 };
