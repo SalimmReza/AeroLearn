@@ -3,8 +3,16 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthProvider';
 
 const NavBar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     console.log(user)
+
+    const handleLogOut = () => {
+        logOut().then(() => {
+
+        }).catch((error) => {
+
+        });
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -51,11 +59,38 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-4">
-                <Link to='courses'>Courses</Link>
+                <Link to='/courses'>Courses</Link>
                 <Link to=''>FAQ</Link>
-                <Link to='blog'>Blog</Link>
-                <Link to=''>Login</Link>
-                <a className="btn">LogOut</a>
+                <Link to='/blog'>Blog</Link>
+                <Link to='/login'>Login</Link>
+
+                {
+                    user?.photoURL ?
+                        <div className='icon img'>
+                            <div className='tooltip'>Salim</div>
+                            <img src={user.photoURL} alt="" />
+                        </div>
+                        :
+                        <div>
+                            ""
+                        </div>
+
+
+                }
+
+                {
+                    user?.uid ?
+                        <>
+
+                            <button className='btn btn-ghost normal-case text-xl'
+                                onClick={handleLogOut}
+                            >Logout</button>
+                        </>
+                        :
+                        <>
+
+                        </>
+                }
             </div>
         </div >
     );

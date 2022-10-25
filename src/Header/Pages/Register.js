@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Form } from 'react-router-dom';
+import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Register = () => {
@@ -84,9 +84,12 @@ const Register = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
+                            <p>Already have Account <Link to='/login'
+                                className='text-blue-700'
+                            >Login!</Link> </p>
                             <p className='text-red-600'>{error}</p>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">Register Now</button>
                             </div>
                         </div>
                     </div>
