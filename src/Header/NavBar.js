@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Contexts/AuthProvider';
 
 const NavBar = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user)
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -22,7 +25,7 @@ const NavBar = () => {
                                 <li><a>Submenu 2</a></li>
                             </ul>
                         </li>
-                        <li><a>Item 3</a></li>
+
                     </ul>
                 </div>
                 <div className="w-[30px] rounded-xl">
@@ -43,7 +46,8 @@ const NavBar = () => {
                             <li><a>Submenu 2</a></li>
                         </ul>
                     </li>
-                    <li><a>Item 3</a></li>
+                    <li><a>{user?.displayName}</a></li>
+                    <li><a>{user?.email}</a></li>
                 </ul>
             </div>
             <div className="navbar-end gap-4">

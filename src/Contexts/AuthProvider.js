@@ -35,7 +35,7 @@ const AuthProvide = ({ children }) => {
     }
 
     const updateUserProfile = (profile) => {
-        return updateProfile(auth.currentUser, profile);
+        return updateProfile(auth.currentUser, { displayName: profile });
     }
 
     const verifyEmail = () => {
