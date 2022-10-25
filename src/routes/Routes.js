@@ -10,6 +10,7 @@ import Main from "../layout/Main";
 import CheckOut from "../shared/CheckOut";
 import Congratulation from "../shared/Congratulation";
 import CourseDetails from "../shared/CourseDetails";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const routes = createBrowserRouter([
@@ -34,13 +35,13 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/checkout/:id',
-                element: <CheckOut></CheckOut>,
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
 
             },
             {
                 path: '/congo',
-                element: <Congratulation></Congratulation>,
+                element: <PrivateRoute><Congratulation></Congratulation></PrivateRoute>,
 
 
             },
