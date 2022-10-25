@@ -1,6 +1,7 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { FaStar } from 'react-icons/fa';
+import { Link, useLoaderData } from 'react-router-dom';
+import { FaStar, FaDownload } from 'react-icons/fa';
+
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
@@ -12,6 +13,19 @@ const CourseDetails = () => {
     return (
         <div className='w-[60%] mx-auto my-5 h-full'>
             <div className="card w-full bg-base-100 shadow-xl border-2 border-yellow-600">
+                <div className='flex justify-between items-center p-3'>
+                    <div className='d-flex'>
+                        <button className="btn btn-outline btn-primary">Our Commitments</button>
+
+                    </div>
+                    <div className='d-flex'>
+                        <h1>Website Name</h1>
+
+                    </div>
+                    <div>
+                        <FaDownload className='w-14'></FaDownload>
+                    </div>
+                </div>
                 <figure>
                     <img className='w-full h-[300px] bg-cover bg-center'
                         src={img} alt="Shoes" /></figure>
@@ -40,7 +54,9 @@ const CourseDetails = () => {
                     <div className="card-actions justify-end">
                         <div className="badge badge-outline">Course Level: {level}</div>
                         <div className="badge badge-outline">Students: {total_enroll}</div>
-                        <div className="badge badge-outline bg-warning cursor-pointer">Get Premium</div>
+
+                        <Link to={`/checkout/${_id}`}><div className="badge badge-outline bg-warning cursor-pointer">Get Premium</div></Link>
+
                     </div>
                 </div>
             </div>
