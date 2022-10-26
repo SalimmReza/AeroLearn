@@ -2,7 +2,9 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import app from '../../firebase/firebase.init';
+const auth = getAuth(app);
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -11,6 +13,7 @@ const Login = () => {
     const { loginIn, googleSignIn } = useContext(AuthContext);
 
     const provider = new GoogleAuthProvider();
+    const GitHubprovider = new GithubAuthProvider();
 
     const from = location.state?.from?.pathname || '/';
 
@@ -34,6 +37,28 @@ const Login = () => {
 
             });
     }
+
+    const handleGitSignIn = () => {
+        signInWithPopup(auth, GitHubprovider)
+            .then(result => {
+                const user = result.user;
+                setError('');
+                navigate(from, { replace: true });
+                console.log(user);
+            })
+            .catch((error) => {
+
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.customData.email;
+                const credential = GithubAuthProvider.credentialFromError(error);
+                setError(errorMessage);
+
+            });
+
+    }
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -97,7 +122,8 @@ const Login = () => {
                                     className="btn btn-primary gap-4"> <FaGoogle></FaGoogle>Google Login </button>
                             </div>
                             <div className="form-control mt-1">
-                                <button className="btn btn-primary gap-4"> <FaGithub></FaGithub>Github Login </button>
+                                <button onClick={handleGitSignIn}
+                                    className="btn btn-primary gap-4"> <FaGithub></FaGithub>Github Login </button>
                             </div>
                         </div>
                     </div>
