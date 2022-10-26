@@ -39,7 +39,7 @@ const NavBar = () => {
 
                         </ul>
                     </div>
-                    <div className="w-[30px] rounded-xl">
+                    <div className="w-[30px] rounded-xl hidden md:block">
                         <img src="https://cdn-icons-png.flaticon.com/512/1358/1358770.png" alt=''></img>
                     </div>
                     <Link to='/' className="btn btn-ghost normal-case text-xl">Aero-Learn</Link>
@@ -53,7 +53,7 @@ const NavBar = () => {
                     </div>
 
                 </div>
-                <div className="navbar-end gap-4 ">
+                <div className="navbar-end ">
                     {
                         user?.photoURL ?
                             <div className="wrapper">
@@ -77,7 +77,7 @@ const NavBar = () => {
                         user?.uid ?
                             <>
 
-                                <button className='btn btn-ghost normal-case text-xl'
+                                <button className='btn btn-ghost normal-case text-sm'
                                     onClick={handleLogOut}
                                 >Logout</button>
                             </>
