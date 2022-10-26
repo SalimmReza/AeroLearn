@@ -10,6 +10,7 @@ import Main from "../layout/Main";
 import CheckOut from "../shared/CheckOut";
 import Congratulation from "../shared/Congratulation";
 import CourseDetails from "../shared/CourseDetails";
+import Errorpage from "../shared/Errorpage";
 import PrivateRoute from "./PrivateRoute";
 
 
@@ -17,6 +18,7 @@ export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <Errorpage></Errorpage>,
         children: [
             {
                 path: '/',
