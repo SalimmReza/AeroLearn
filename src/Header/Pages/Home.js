@@ -8,12 +8,12 @@ const Home = () => {
                 <img className=' h-full object-cover absolute mix-blend-overlay'
                     src="https://images.pexels.com/photos/358220/pexels-photo-358220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                 <div className='p-24 flex flex-col items-end justify-end'>
-                    <h1 className='text-white font-bold text-base'>
+                    <h1 className='text-black font-bold text-lg'>
                         Our courses are related to Aircraft Engineering. <br /> We have many professional teacher from all over the world <br /> from different countries.. Do explore our courses
                     </h1>
 
-                    <div className='my-5 sm:overflow-hidden'>
-                        <Link to='login'><button className="btn btn-info w-[400px] "></button></Link>
+                    <div className='my-5 sm:overflow-hidden hidden lg:block'>
+                        <Link to='login'><button className="btn btn-info w-[400px] ">Login</button></Link>
                     </div>
                     <div className='h-15 w-10 flex gap-8 flex-row-reverse'>
                         <img src="https://thumbs.dreamstime.com/z/university-logo-design-182796359.jpg" alt="" />

@@ -22,7 +22,7 @@ const CourseDetails = () => {
     return (
 
         <div className='flex flex-col'>
-            <ReactToPdf targetRef={ref} filename="course-details" options={options} x={.5} y={.5} scale={0.8}>
+            <ReactToPdf targetRef={ref} filename="course-details" options={options} x={.5} y={.1} scale={0.8}>
                 {({ toPdf }) => (
                     <button className=' btn btn-outline btn-primary item-center'
                         onClick={toPdf}>Generate pdf <FaDownload className='w-14'></FaDownload></button>
