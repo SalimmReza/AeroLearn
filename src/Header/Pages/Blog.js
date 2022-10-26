@@ -1,52 +1,22 @@
 import React, { useContext } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import ReactToPdf from 'react-to-pdf';
+const ref = React.createRef();
 
-import { AuthContext } from '../../Contexts/AuthProvider';
 
-const Blog = ({ course }) => {
-    // console.log(course)
-    const { user, logOut } = useContext(AuthContext);
-    console.log(user.name)
 
-    const settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        initialSlide: 0,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    infinite: true,
-                    dots: true,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
+const Blog = ({ }) => {
+
+
     return (
         <div>
-
+            <ReactToPdf targetRef={ref} filename="div-blue.pdf">
+                {({ toPdf }) => (
+                    <button onClick={toPdf}>Generate pdf</button>
+                )}
+            </ReactToPdf>
+            <div ref={ref} >
+                <h1>jdfnjn</h1>
+            </div>
         </div>
     );
 };
