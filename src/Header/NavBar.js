@@ -41,7 +41,7 @@ const NavBar = () => {
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 
                             <NavLink className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/courses'>Courses</NavLink>
-                            <Link className='mr-7 hover:text-blue-700 text-lg font-semibold' to=''>FAQ</Link>
+                            <Link className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/faq'>FAQ</Link>
                             <NavLink className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/blog'>Blog</NavLink>
                             <NavLink className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/login'>Login</NavLink>
 

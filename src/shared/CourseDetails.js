@@ -11,7 +11,7 @@ const CourseDetails = () => {
     const courseDetails = useLoaderData();
 
 
-    const { _id, name, university, rating, img, total_enroll, level, details } = courseDetails
+    const { _id, name, university, rating, img, total_enroll, level, details, t1, t2, t3, t4, t5 } = courseDetails
     const { lecturer, country, enroll_date, thumbnail_url } = courseDetails.author
 
     // console.log(lecturer)
@@ -72,6 +72,12 @@ const CourseDetails = () => {
                                 <div className="badge badge-secondary ">{rating}<FaStar className='ml-1' ></FaStar> </div>
                             </h2>
                             <p>{details}</p>
+                            <h5 className='font-semibold'>Our Contents:</h5>
+                            <li>{t1}</li>
+                            <li>{t2}</li>
+                            <li>{t3}</li>
+                            <li>{t4}</li>
+                            <li>{t5}</li>
                             <h4 className='font-semibold'>University: {university}</h4>
                             <div className='flex items-center gap-3'>
                                 <div className="avatar">
