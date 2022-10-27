@@ -1,4 +1,32 @@
-# Getting Started with Create React App
+# Aero-Learn
+### Live link: https://assignment10-bf258.firebaseapp.com/
+- Login through google, github and registration system
+- 6 courses about Eeronautical Engineering
+- International Teachers
+- User can take subscription
+- with login user can't subscribe
+- Display user name when hover on profile picturre
+
+## Technoogies Used
+React, React Router, Context api, expressjs , nodejs, tailwind css , daisyuiu, firebase, react-script, react-to-pdf. 
+ </br>
+  </br>
+   </br>
+    </br>
+     </br>
+     
+     
+  </br>
+   </br>
+    </br>
+     </br>
+
+
+
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
