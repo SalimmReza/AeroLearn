@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar, FaDownload, FaArrowLeft } from 'react-icons/fa';
 import ReactToPdf from 'react-to-pdf';
+
 const ref = React.createRef();
 
 
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
+
 
     const { _id, name, university, rating, img, total_enroll, level, details } = courseDetails
     const { lecturer, country, enroll_date, thumbnail_url } = courseDetails.author
@@ -19,6 +21,11 @@ const CourseDetails = () => {
         unit: 'in',
         format: [10, 10]
     };
+
+    const aler = () => {
+        alert('Will be Updating Soon'
+        )
+    }
     return (
 
         <div className='flex flex-col'>
@@ -42,7 +49,11 @@ const CourseDetails = () => {
 
                             </div>
                             <div className='d-flex'>
-                                <button className="btn btn-outline btn-primary">Our Commitments</button>
+
+                                <button onClick={aler}
+                                    className="btn btn-outline btn-primary">Our Commitments</button>
+
+
 
                             </div>
 

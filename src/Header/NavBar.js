@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import React, { createContext, useContext, useState } from 'react';
+import { Form, Link, Navigate, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthProvider';
 import './NavBar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faUser } from '@fortawesome/free-solid-svg-icons'
+import ReactSwitch from 'react-switch';
+
+export const ThemeContext = createContext(null);
 
 const NavBar = () => {
+    const [theme, setTheme] = useState("dark");
     const { user, logOut } = useContext(AuthContext);
     console.log(user)
     const location = useLocation();
@@ -21,6 +25,11 @@ const NavBar = () => {
 
         });
     }
+
+
+    const toggleTheme = () => {
+        setTheme((curr) => (curr === "light" ? "dark" : "light"));
+    };
     return (
         <div className='shadow-2xl '>
             <div className="navbar bg-gray-100 ">
@@ -31,10 +40,23 @@ const NavBar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 
-                            <Link className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/courses'>Courses</Link>
+                            <NavLink className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/courses'>Courses</NavLink>
                             <Link className='mr-7 hover:text-blue-700 text-lg font-semibold' to=''>FAQ</Link>
-                            <Link className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/blog'>Blog</Link>
-                            <Link className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/login'>Login</Link>
+                            <NavLink className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/blog'>Blog</NavLink>
+                            <NavLink className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/login'>Login</NavLink>
+
+                            <div className=''>
+                                <ThemeContext.Provider value={{ theme, toggleTheme }}>
+                                    <div className="App" id={theme}>
+                                        <div className="switch flex mr-1">
+                                            <label className='mr-1'> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
+                                            <ReactSwitch className='' onChange={toggleTheme} checked={theme === "dark"} />
+                                        </div>
+
+                                    </div>
+
+                                </ThemeContext.Provider>
+                            </div>
 
 
                         </ul>
@@ -46,14 +68,32 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex" >
                     <div className="navbar-end">
-                        <Link className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/courses'>Courses</Link>
-                        <Link className='mr-7 hover:text-blue-700 text-lg font-semibold' to=''>FAQ</Link>
-                        <Link className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/blog'>Blog</Link>
-                        <Link className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/login'>Login</Link>
+
+                        <NavLink className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/courses'>Courses</NavLink>
+                        <NavLink className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/faq'>FAQ</NavLink>
+                        <NavLink className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/blog'>Blog</NavLink>
+                        <NavLink className='mr-7 hover:text-blue-700 text-lg font-semibold' to='/login'>Login</NavLink>
+
+                        {/* jfbjfgbfjgb */}
+
+
                     </div>
 
                 </div>
                 <div className="navbar-end ">
+
+                    <div className='hidden lg:block'>
+                        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+                            <div className="App" id={theme}>
+                                <div className="switch flex mr-1">
+                                    <label className='mr-1'> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
+                                    <ReactSwitch className='' onChange={toggleTheme} checked={theme === "dark"} />
+                                </div>
+
+                            </div>
+
+                        </ThemeContext.Provider>
+                    </div>
                     {
                         user?.photoURL ?
                             <div className="wrapper">
@@ -88,7 +128,7 @@ const NavBar = () => {
                     }
                 </div>
             </div >
-        </div>
+        </div >
     );
 };
 

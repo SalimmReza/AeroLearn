@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer";
 import Blog from "../Header/Pages/Blog";
 import Course from "../Header/Pages/Course";
 import Courses from "../Header/Pages/Courses";
+import Faq from "../Header/Pages/Faq";
 import Home from "../Header/Pages/Home";
 import Login from "../Header/Pages/Login";
 import Register from "../Header/Pages/Register";
@@ -45,14 +46,6 @@ export const routes = createBrowserRouter([
 
 
 
-
-
-
-
-
-
-
-
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
@@ -80,6 +73,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/faq',
+                element: <Faq></Faq>
             },
         ]
 
